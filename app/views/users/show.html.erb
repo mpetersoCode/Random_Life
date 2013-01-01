@@ -1,0 +1,6 @@
+<% provide(:title, @user.name) %>
+
+<div class="center hero-unit">
+	<h1><%= @user.name %></h1>
+	<%= image_tag @user.photo.url(:small)%>
+</div>

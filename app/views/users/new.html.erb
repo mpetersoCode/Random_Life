@@ -16,7 +16,9 @@
 			<%= f.label :password_confirmation %>
 			<%= f.password_field :password_confirmation %>
 			
-			<%= f.file_field :photo %>
+			<%= f.fields_for :assets do |builder| %>
+			  <%= builder.file_field :photo %>
+			<% end %>
 			
 			<%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
 		<% end %>

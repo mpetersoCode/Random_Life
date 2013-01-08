@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :photo
+  attr_accessible :name, :email, :password, :password_confirmation, :assets, :assets_attributes, :microposts
+  has_many :assets
+  has_many :microposts
+  accepts_nested_attributes_for :assets
   has_secure_password
-  has_attached_file :photo, :styles => { :small => "150x150>" }
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

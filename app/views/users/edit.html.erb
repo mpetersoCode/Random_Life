@@ -16,7 +16,14 @@
 	    <%= f.label :password_confirmation, "Confirm Password" %>
 	    <%= f.password_field :password_confirmation %>
 	
-	    <%= f.file_field :photo %>
+		<% @asset = @user.assets.build %>
+		<% @user.assets.each do |temp| %>
+		<%= f.fields_for :assets, temp do |builder|%>
+		  <% if temp == @asset %>
+	        <%= builder.file_field :photo %>
+	      <% end %>
+		<% end %>
+		<% end %>
 	
 	    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
 		    <% end %>

@@ -1,0 +1,6 @@
+<% provide(:title, 'Photos') %>
+
+<h1>Profile Pictures</h1>
+<% @user.assets.each do |x| %>
+	<%= image_tag x.photo.url(:small) %>
+<% end %>
